@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>img solution</title>
+  </head>
+  <body>
+    <h1>img attribuate change</h1>
+    <img
+      id="myImage"
+      src="https://th.bing.com/th/id/OIP.fC-Ehh8YSFlz9L4XvRl2ewHaHa?w=184&h=184&c=7&r=0&o=5&pid=1.7"
+      alt="Initial Image"
+    />
+    <br />
+    <button id="changeButton">Change Image</button>
+
+    <script>
+      const myImage = document.getElementById("myImage");
+      const changeButton = document.getElementById("changeButton");
+      const imgOne =
+        "https://th.bing.com/th/id/OIP.fC-Ehh8YSFlz9L4XvRl2ewHaHa?w=184&h=184&c=7&r=0&o=5&pid=1.7";
+      const imgTwo =
+        "https://th.bing.com/th/id/OIP.ARSIysBrEIOrBQiqqgvbNQHaEK?w=279&h=186&c=7&r=0&o=5&pid=1.7";
+
+      changeButton.addEventListener("click", function () {
+        myImage.src === imgOne
+          ? (myImage.src = imgTwo)
+          : (myImage.src = imgOne);
+      });
+    </script>
+  </body>
+</html>

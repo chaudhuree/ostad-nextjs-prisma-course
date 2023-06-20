@@ -203,3 +203,171 @@ b. Implement a JavaScript function that changes the text content of the paragrap
 // solution:
 // note: solution in  assignment-03-08.html file
 
+
+/*
+9.JS DOM Working with Form Input:
+
+Implement a webpage with a form that has the following fields:
+
+a. Name (text input)
+
+b. Email (email input)
+
+c. Password (password input)
+
+d. Confirm Password (password input)
+
+e. Submit (button)
+
+Implement JavaScript validation for the form fields:
+
+f. Name should not be empty and should contain only letters.
+
+g. Email should be a valid email address.
+
+h. Password should have a minimum length of 8 characters and contain at least one uppercase letter, one lowercase letter, and one digit.
+
+i. Confirm Password should match the Password field.
+
+j. Display appropriate error messages for invalid fields.
+
+*/
+
+// solution:
+
+// note: solution in  assignment-03-09.html file
+
+/*
+10.DOM Manipulate CSS Class:
+
+a. Create a webpage with a button and a paragraph element.
+
+b. Implement a JavaScript function that adds a CSS class named "highlight" to the paragraph element when the button is clicked. The "highlight" class should change the background color of the paragraph to yellow.
+*/
+
+// solution:
+
+// note: solution in  assignment-03-10.html file
+
+
+/*
+11.Create Element & Append Element:
+
+a. Create a webpage with an empty unordered list (<ul>).
+
+b. Implement a JavaScript function that dynamically creates five list items (<li>) with sequential numbers (1 to 5) and appends them to the unordered list.
+
+*/
+
+// solution:
+
+// note: solution in  assignment-03-11.html file
+
+/*
+
+12.DOM Change Attribute Value:
+
+a. Create a webpage with an image element (<img>) that has an initial source URL.
+
+b. Implement a JavaScript function that changes the source URL of the image element when a button is clicked. Use a different image URL of your choice.
+*/
+
+// solution:
+
+// note: solution in  assignment-03-12.html file
+
+/*
+13.DOM Query Selector:
+
+a. Create a webpage with multiple paragraphs containing different classes and IDs.
+
+b. Implement a JavaScript function that selects all paragraphs with a specific class and changes their text color to red.
+*/
+
+// solution:
+
+// note: solution in  assignment-03-13.html file
+
+/*
+14.AJAX Get Request:
+
+a. Implement a JavaScript function that sends an AJAX GET request to the following URL: "https://api.example.com/data".
+*/
+
+// solution:
+
+function sendAjaxGetRequest(url, callback) {
+  const xhr = new XMLHttpRequest();
+  xhr.open('GET', url, true);
+  
+  xhr.onload = function() {
+    if (xhr.status === 200) {
+      callback(null, xhr.responseText);
+    } else {
+      callback('Error: ' + xhr.status);
+    }
+  };
+  
+  xhr.onerror = function() {
+    callback('Request failed');
+  };
+  
+  xhr.send();
+}
+
+// Usage:
+sendAjaxGetRequest('https://api.example.com/data', function(error, response) {
+  if (error) {
+    console.error(error);
+  } else {
+    console.log(response);
+  }
+});
+
+
+/*
+15.AJAX Post Request:
+
+a. Implement a JavaScript function that sends an AJAX POST request to the following URL: "https://api.example.com/submit".
+
+b. Send a JSON payload with the following data: { "name": "John Doe", "email": "johndoe@example.com" }.
+*/
+
+// solution:
+const functionOfCallback = function(error, response) {
+  if (error) {
+    console.error(error);
+  } else {
+    console.log(response);
+  }
+};
+function sendAjaxPostRequest(url, data, callback) {
+  const xhr = new XMLHttpRequest();
+  xhr.open('POST', url, true);
+  xhr.setRequestHeader('Content-Type', 'application/json');
+  
+  xhr.onreadystatechange = function() {
+    if (xhr.readyState === XMLHttpRequest.DONE) {
+      if (xhr.status === 200) {
+        const response = JSON.parse(xhr.responseText);
+        callback(null, response);
+      } else {
+        callback('Error: ' + xhr.status);
+      }
+    }
+  };
+  
+  xhr.onerror = function() {
+    callback('Request failed');
+  };
+  
+  xhr.send(JSON.stringify(data));
+}
+
+
+
+// Usage:
+const url = 'https://api.example.com/submit';
+const data = { "name": "John Doe", "email": "johndoe@example.com" };
+
+sendAjaxPostRequest(url, data, functionOfCallback);

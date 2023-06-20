@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>query selector</title>
+    <style>
+      .highlight {
+        color: red;
+      }
+    </style>
+  </head>
+  <body>
+    <p id="p1">Paragraph 1</p>
+    <p class="highlight">Paragraph 2</p>
+    <p class="highlight">Paragraph 3</p>
+    <p id="p4">Paragraph 4</p>
+    <p class="highlight">Paragraph 5</p>
+
+    <script>
+      const paragraphs = document.querySelectorAll(".highlight");
+      paragraphs.forEach((paragraph) => {
+        paragraph.style.color = "red";
+      });
+    </script>
+  </body>
+</html>

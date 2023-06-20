@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>dom manipulation</title>
+    <style>
+      .highlight {
+        background-color: yellow !important;
+      }
+    </style>
+  </head>
+  <body>
+    <button id="btn">Highlight Paragraph</button>
+    <p id="para">This is a paragraph.</p>
+
+    <script>
+      const button = document.getElementById("btn");
+      const paragraph = document.getElementById("para");
+
+      button.addEventListener("click", function () {
+        paragraph.classList.add("highlight");
+      });
+    </script>
+  </body>
+</html>

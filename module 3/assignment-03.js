@@ -97,3 +97,109 @@ function displayPrimeNumber(num) {
 
 displayPrimeNumber(7);
 
+/*
+4.Window Object:
+
+a. Create a function that opens a new window with a specified URL and dimensions (width and height).
+
+b. Implement the function to open a new window with the URL "https://www.example.com" and dimensions 800x600.
+*/
+
+// solution:
+function openWindow(url, width, height) {
+  window.open(url, '_blank', `width=${width},height=${height}`);
+}
+
+
+openWindow("https://www.example.com", 800, 600);
+
+/*
+5.Navigator Object:
+
+a. Write a JavaScript function that detects the user's browser name and version using the navigator object.
+
+b. Implement the function to display the user's browser name and version.
+*/
+
+// solution:
+// method 1
+function getBrowserInfo() {
+  const browserInfo = navigator.userAgent;
+  return browserInfo;
+}
+
+function displayBrowserInfo() {
+  const browserInfo = getBrowserInfo();
+  console.log(`Browser info: ${browserInfo}`);
+}
+
+displayBrowserInfo();
+
+// method 2
+// note: appName and appVersion are deprecated
+function detectBrowser() {
+  const browserName = navigator.appName;
+  const browserVersion = navigator.appVersion;
+
+  console.log("Browser Name:", browserName);
+  console.log("Browser Version:", browserVersion);
+}
+
+detectBrowser();
+
+/*
+6.Geolocation:
+
+a. Implement a JavaScript function that retrieves the user's current location (latitude and longitude) using the geolocation API.
+*/
+
+// solution:
+function getUserLocation() {
+  if (navigator.geolocation) {
+    navigator.geolocation.getCurrentPosition(
+      function(position) {
+        const latitude = position.coords.latitude;
+        const longitude = position.coords.longitude;
+        console.log("Latitude:", latitude);
+        console.log("Longitude:", longitude);
+      },
+      function(error) {
+        console.error("Error occurred while retrieving location:", error);
+      }
+    );
+  } else {
+    console.error("Geolocation is not supported by this browser.");
+  }
+}
+getUserLocation();
+
+
+/*
+7.JS Common Events:
+
+Implement a webpage with the following functionality:
+
+a. When the user clicks anywhere on the page, display an alert with the coordinates (x, y) of the click.
+
+b. When the user presses any key on the keyboard, display an alert with the key code of the pressed key.
+
+c. When the user moves the mouse over an image, change the image source to another image of your choice.
+*/
+
+// solution:
+// note: solution in  assignment-03-07.html file
+
+
+
+
+/*
+8.HTML DOM Document:
+
+a. Create a webpage with a button and a paragraph element.
+
+b. Implement a JavaScript function that changes the text content of the paragraph element to "Button Clicked!" when the button is clicked.
+*/
+
+// solution:
+// note: solution in  assignment-03-08.html file
+

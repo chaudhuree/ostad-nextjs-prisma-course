@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>common js events</title>
+  </head>
+  <body>
+    <h2>click to see the coordinates</h2>
+    <p>press keyboard key to see pressed key</p>
+    <img
+      id="img"
+      src="https://th.bing.com/th/id/OIP.fC-Ehh8YSFlz9L4XvRl2ewHaHa?w=184&h=184&c=7&r=0&o=5&pid=1.7"
+      alt="initial image"
+    />
+
+    <script>
+      // Get reference to the image element
+      const image = document.getElementById("img");
+
+      // Event listener for click event
+      document.addEventListener("click", function (event) {
+        const x = event.clientX;
+        const y = event.clientY;
+        alert("Clicked at coordinates: (" + x + ", " + y + ")");
+      });
+
+      // Event listener for keydown event
+      document.addEventListener("keydown", function (event) {
+        const keyCode = event.keyCode;
+        alert("Key pressed. Key code: " + keyCode);
+      });
+
+      // Event listener for mouseover event on the image
+      image.addEventListener("mouseover", function () {
+        const imgOne =
+          "https://th.bing.com/th/id/OIP.fC-Ehh8YSFlz9L4XvRl2ewHaHa?w=184&h=184&c=7&r=0&o=5&pid=1.7";
+        const imgTwo =
+          "https://th.bing.com/th/id/OIP.ARSIysBrEIOrBQiqqgvbNQHaEK?w=279&h=186&c=7&r=0&o=5&pid=1.7";
+        image.src === imgOne ? (image.src = imgTwo) : (image.src = imgOne);
+      });
+    </script>
+  </body>
+</html>

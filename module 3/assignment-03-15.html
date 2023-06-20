@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      .paradata-modified {
+        display: grid;
+        place-items: center;
+        width: 400px;
+        height: 200px;
+        border: 1px solid black;
+        padding: 10px;
+        background: palegoldenrod;
+      }
+      .paradata p {
+        font-size: 1.2rem;
+        font-weight: bold;
+        color: #6b0043;
+        text-align: center;
+      }
+    </style>
+  </head>
+  <body>
+    <pre>
+    <code>
+      15.AJAX Post Request:
+
+        a. Implement a JavaScript function that sends an AJAX POST request to the following URL: "https://api.example.com/submit".
+
+        b. Send a JSON payload with the following data: { "name": "John Doe", "email": "johndoe@example.com" }.
+    </code>
+  </pre>
+    <button onclick="sendPOSTRequest()">click to post</button>
+    <div class="paradata">
+      <p class="data"></p>
+    </div>
+  </body>
+  <script>
+    const container = document.querySelector(".paradata");
+    const para = document.querySelector(".data");
+    function sendPOSTRequest() {
+      var url = "https://jsonplaceholder.typicode.com/users";
+      var data = {
+        name: "John Doe",
+        email: "johndoe@example.com",
+      };
+      container.classList.add("paradata-modified");
+      para.innerHTML = "Data to be sent:" + JSON.stringify(data);
+
+      var xhr = new XMLHttpRequest();
+      xhr.open("POST", url, true);
+      xhr.setRequestHeader("Content-Type", "application/json");
+      xhr.onreadystatechange = function () {
+        if (xhr.readyState === 4) {
+          if (xhr.status === 200 || xhr.status === 201) {
+            let countdown = 3;
+            const interval = setInterval(function () {
+              para.innerHTML = countdown;
+
+              if (countdown === 0) {
+                clearInterval(interval);
+                let response = JSON.parse(xhr.responseText);
+                // console.log("Response:", response);
+                para.innerHTML = `after post request, the response is: <br> ${JSON.stringify(
+                  response
+                )}`;
+              }
+              countdown--;
+            }, 1000);
+          } else {
+            console.log("Request failed. Status:", xhr.status);
+          }
+        }
+      };
+      xhr.send(JSON.stringify(data));
+    }
+  </script>
+</html>

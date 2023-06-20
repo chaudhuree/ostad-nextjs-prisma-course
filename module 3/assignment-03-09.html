@@ -4,12 +4,40 @@
     <title>form validation</title>
     <style>
       .error {
+        border-radius: 20px;
         color: red;
         font-size: 14px;
       }
     </style>
   </head>
   <body>
+    <pre>
+      9.JS DOM Working with Form Input:
+
+          Implement a webpage with a form that has the following fields:
+
+          a. Name (text input)
+
+          b. Email (email input)
+
+          c. Password (password input)
+
+          d. Confirm Password (password input)
+
+          e. Submit (button)
+
+          Implement JavaScript validation for the form fields:
+
+          f. Name should not be empty and should contain only letters.
+
+          g. Email should be a valid email address.
+
+          h. Password should have a minimum length of 8 characters and contain at least one uppercase letter, one lowercase letter, and one digit.
+
+          i. Confirm Password should match the Password field.
+
+          j. Display appropriate error messages for invalid fields.
+    </pre>
     <form id="myForm">
       <div>
         <label for="name">Name:</label>
@@ -23,12 +51,12 @@
       </div>
       <div>
         <label for="password">Password:</label>
-        <input type="text" id="password" name="password" />
+        <input type="password" id="password" name="password" />
         <span id="passwordError" class="error"></span>
       </div>
       <div>
         <label for="confirmPassword">Confirm Password:</label>
-        <input type="text" id="confirmPassword" name="confirmPassword" />
+        <input type="password" id="confirmPassword" name="confirmPassword" />
         <span id="confirmPasswordError" class="error"></span>
       </div>
       <button type="submit">Submit</button>

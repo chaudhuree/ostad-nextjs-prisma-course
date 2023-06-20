@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>window open</title>
+  </head>
+  <body>
+    <pre>
+      <code>
+       
+        4.Window Object:
+
+          a. Create a function that opens a new window with a specified URL and dimensions (width and height).
+
+          b. Implement the function to open a new window with the URL "https://www.example.com" and dimensions 800x600.
+
+      </code>
+    </pre>
+  </body>
+  <script>
+    function openNewWindow(url, width, height) {
+      window.open(url, "_blank", "width=" + width + ",height=" + height);
+    }
+    openNewWindow("https://www.google.com", 800, 600);
+  </script>
+</html>

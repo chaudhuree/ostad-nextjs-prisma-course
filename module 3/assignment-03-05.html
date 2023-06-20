@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <pre><code>
+      5.Navigator Object:
+
+        a. Write a JavaScript function that detects the user's browser name and version using the navigator object.
+
+        b. Implement the function to display the user's browser name and version.
+
+    </code></pre>
+
+    <h2>see the console of the browser window to have the result:</h2>
+  </body>
+  <script>
+    // solution:
+    // method 1
+    function getBrowserInfo() {
+      const browserInfo = navigator.userAgent;
+      return browserInfo;
+    }
+
+    function displayBrowserInfo() {
+      const browserInfo = getBrowserInfo();
+      console.log(`Browser info: ${browserInfo}`);
+    }
+
+    displayBrowserInfo();
+
+    // method 2
+    // note: appName and appVersion are deprecated
+    function detectBrowser() {
+      const browserName = navigator.appName;
+      const browserVersion = navigator.appVersion;
+
+      console.log("Browser Name:", browserName);
+      console.log("Browser Version:", browserVersion);
+    }
+
+    detectBrowser();
+  </script>
+</html>

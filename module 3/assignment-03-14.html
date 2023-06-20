@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <pre>
+    <code>
+      14.AJAX Get Request:
+
+        a. Implement a JavaScript function that sends an AJAX GET request to the following URL: "https://jsonplaceholder.typicode.com/users".
+    </code>
+  </pre>
+  </body>
+  <script>
+    function sendAjaxGetRequest(url, callback) {
+      const xhr = new XMLHttpRequest();
+      xhr.open("GET", url, true);
+
+      xhr.onload = function () {
+        if (xhr.status === 200) {
+          callback(null, xhr.responseText);
+        } else {
+          callback("Error: " + xhr.status);
+        }
+      };
+
+      xhr.onerror = function () {
+        callback("Request failed");
+      };
+
+      xhr.send();
+    }
+
+    // Usage:
+    sendAjaxGetRequest(
+      "https://jsonplaceholder.typicode.com/users",
+      function (error, response) {
+        if (error) {
+          console.error(error);
+        } else {
+          console.log(response);
+        }
+      }
+    );
+  </script>
+</html>

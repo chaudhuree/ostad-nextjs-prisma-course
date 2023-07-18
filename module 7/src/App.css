@@ -1,7 +1,10 @@
+@import url("https://fonts.googleapis.com/css2?family=Ubuntu:wght@300;400;500;700&display=swap");
+
 * {
   padding: 0;
   margin: 0;
   box-sizing: border-box;
+  font-family: "Ubuntu", sans-serif;
 }
 ul {
   list-style: none;
@@ -20,9 +23,13 @@ body {
 }
 .todo__container {
   padding: 30px 20px;
-  background: #dce1f3;
   width: 360px;
   min-height: 300px;
+  background: rgba(220, 225, 243, 0.4);
+  box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.37);
+  backdrop-filter: blur(4.5px);
+  -webkit-backdrop-filter: blur(4.5px);
+  border-radius: 10px;
 }
 .input__container {
   display: flex;
@@ -34,10 +41,13 @@ ul.todo__items {
   text-align: center;
   padding: 10px 8px;
 }
+
 li.todo__item {
+  padding: 7px 12px;
   margin-bottom: 10px;
   display: flex;
   justify-content: space-between;
+  box-shadow: 0 -6px 25px -5px #0000001a, 0 20px 13px -6px #0000001a;
 }
 label.todo__item-label {
   display: flex;
@@ -53,9 +63,9 @@ label.todo__item-label {
   --input-hovered-color: #4985e01f;
   position: relative;
   width: var(--width-of-input);
- }
- /* styling of Input */
- .input {
+}
+/* styling of Input */
+.input {
   color: #565555;
   font-size: 0.9rem;
   background-color: transparent;
@@ -65,9 +75,9 @@ label.todo__item-label {
   padding-block: 0.7em;
   border: none;
   border-bottom: var(--border-height) solid var(--border-before-color);
- }
- /* styling of animated border */
- .input-border {
+}
+/* styling of animated border */
+.input-border {
   position: absolute;
   background: var(--border-after-color);
   width: 0%;
@@ -75,22 +85,22 @@ label.todo__item-label {
   bottom: 0;
   left: 0;
   transition: 0.3s;
- }
- /* Hover on Input */
- input:hover {
+}
+/* Hover on Input */
+input:hover {
   background: var(--input-hovered-color);
- }
- 
- input:focus {
+}
+
+input:focus {
   outline: none;
- }
- /* here is code of animated border */
- input:focus ~ .input-border {
+}
+/* here is code of animated border */
+input:focus ~ .input-border {
   width: 100%;
- }
- /* === if you want to do animated border on typing === */
- /* remove input:focus code and uncomment below code */
- /* input:valid ~ .input-border{
+}
+/* === if you want to do animated border on typing === */
+/* remove input:focus code and uncomment below code */
+/* input:valid ~ .input-border{
    width: 100%;
  } */
 /* button */
@@ -123,7 +133,7 @@ label.todo__item-label {
 }
 
 .button:hover .arrow {
-  animation: slide-in-left 0.6s cubic-bezier(0.250, 0.460, 0.450, 0.940) both;
+  animation: slide-in-left 0.6s cubic-bezier(0.25, 0.46, 0.45, 0.94) both;
 }
 
 @keyframes slide-in-left {
@@ -145,10 +155,10 @@ label.todo__item-label {
 .cl-checkbox {
   position: relative;
   display: inline-block;
- }
- 
- /* Input */
- .cl-checkbox > input {
+}
+
+/* Input */
+.cl-checkbox > input {
   appearance: none;
   -moz-appearance: none;
   -webkit-appearance: none;
@@ -168,17 +178,17 @@ label.todo__item-label {
   transform: scale(1);
   pointer-events: none;
   transition: opacity 0.3s, transform 0.2s;
- }
- 
- /* Span */
- .cl-checkbox > span {
+}
+
+/* Span */
+.cl-checkbox > span {
   display: inline-block;
   width: 100%;
   cursor: pointer;
- }
- 
- /* Box */
- .cl-checkbox > span::before {
+}
+
+/* Box */
+.cl-checkbox > span::before {
   content: "";
   display: inline-block;
   box-sizing: border-box;
@@ -191,10 +201,10 @@ label.todo__item-label {
   height: 18px;
   vertical-align: top;
   transition: border-color 0.2s, background-color 0.2s;
- }
- 
- /* Checkmark */
- .cl-checkbox > span::after {
+}
+
+/* Checkmark */
+.cl-checkbox > span::after {
   content: "";
   display: block;
   position: absolute;
@@ -206,81 +216,81 @@ label.todo__item-label {
   border-right: none;
   border-top: none;
   transform: translate(3px, 4px) rotate(-45deg);
- }
- 
- /* Checked, Indeterminate */
- .cl-checkbox > input:checked,
- .cl-checkbox > input:indeterminate {
+}
+
+/* Checked, Indeterminate */
+.cl-checkbox > input:checked,
+.cl-checkbox > input:indeterminate {
   background-color: #018786;
- }
- 
- .cl-checkbox > input:checked + span::before,
- .cl-checkbox > input:indeterminate + span::before {
+}
+
+.cl-checkbox > input:checked + span::before,
+.cl-checkbox > input:indeterminate + span::before {
   border-color: #018786;
   background-color: #018786;
- }
- 
- .cl-checkbox > input:checked + span::after,
- .cl-checkbox > input:indeterminate + span::after {
+}
+
+.cl-checkbox > input:checked + span::after,
+.cl-checkbox > input:indeterminate + span::after {
   border-color: #fff;
- }
- 
- .cl-checkbox > input:indeterminate + span::after {
+}
+
+.cl-checkbox > input:indeterminate + span::after {
   border-left: none;
   transform: translate(4px, 3px);
- }
- 
- /* Hover, Focus */
- .cl-checkbox:hover > input {
+}
+
+/* Hover, Focus */
+.cl-checkbox:hover > input {
   opacity: 0.04;
- }
- 
- .cl-checkbox > input:focus {
+}
+
+.cl-checkbox > input:focus {
   opacity: 0.12;
- }
- 
- .cl-checkbox:hover > input:focus {
+}
+
+.cl-checkbox:hover > input:focus {
   opacity: 0.16;
- }
- 
- /* Active */
- .cl-checkbox > input:active {
+}
+
+/* Active */
+.cl-checkbox > input:active {
   opacity: 1;
   transform: scale(0);
   transition: transform 0s, opacity 0s;
- }
- 
- .cl-checkbox > input:active + span::before {
+}
+
+.cl-checkbox > input:active + span::before {
   border-color: #85b8b7;
- }
- 
- .cl-checkbox > input:checked:active + span::before {
+}
+
+.cl-checkbox > input:checked:active + span::before {
   border-color: transparent;
   background-color: rgba(0, 0, 0, 0.6);
- }
- 
- /* Disabled */
- .cl-checkbox > input:disabled {
+}
+
+/* Disabled */
+.cl-checkbox > input:disabled {
   opacity: 0;
- }
- 
- .cl-checkbox > input:disabled + span {
+}
+
+.cl-checkbox > input:disabled + span {
   color: rgba(0, 0, 0, 0.38);
   cursor: initial;
- }
- 
- .cl-checkbox > input:disabled + span::before {
+}
+
+.cl-checkbox > input:disabled + span::before {
   border-color: currentColor;
- }
- 
- .cl-checkbox > input:checked:disabled + span::before,
- .cl-checkbox > input:indeterminate:disabled + span::before {
+}
+
+.cl-checkbox > input:checked:disabled + span::before,
+.cl-checkbox > input:indeterminate:disabled + span::before {
   border-color: transparent;
   background-color: currentColor;
- }
- 
- /* todo description */
- .todo__text {
+}
+
+/* todo description */
+.todo__text {
   height: 100%;
   display: flex;
   align-items: center;
@@ -295,7 +305,7 @@ label.todo__item-label {
 }
 
 .btn::after {
-  content: 'delete';
+  content: "delete";
   position: absolute;
   top: -130%;
   left: 50%;
@@ -305,8 +315,8 @@ label.todo__item-label {
   background-color: rgb(168, 7, 7);
   padding: 4px 8px;
   border-radius: 5px;
-  transition: .2s linear;
-  transition-delay: .2s;
+  transition: 0.2s linear;
+  transition-delay: 0.2s;
   color: white;
   text-transform: lowercase;
   font-size: 12px;
@@ -316,7 +326,7 @@ label.todo__item-label {
 
 .icon {
   transform: scale(1.2);
-  transition: .2s linear;
+  transition: 0.2s linear;
 }
 
 .btn:hover > .icon {
@@ -331,4 +341,15 @@ label.todo__item-label {
   visibility: visible;
   opacity: 1;
   top: -160%;
+}
+
+.todos__msg {
+  color: #4d4242f7;
+  font-weight: 500;
+  margin-top: 2rem;
+  display: flex;
+  justify-content: space-around;
+}
+.todos__msg.empty {
+  color: #cc5d5d;
 }

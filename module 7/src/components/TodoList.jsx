@@ -34,7 +34,9 @@ const ToDoList = () => {
     const updatedTasks = tasks.filter((_, i) => i !== index);
     setTasks(updatedTasks);
   };
-  const taskCompleted = tasks.filter((task) => task.isComplete === true).length;
+  // const taskCompleted = tasks.filter((task) => task.isComplete === true).length;
+  // console.log("taskCompleted", taskCompleted);
+  const taskCompleted = tasks.every((task) => !task.isComplete);
   console.log("taskCompleted", taskCompleted);
 
   return (
@@ -107,7 +109,7 @@ const ToDoList = () => {
           </li>
         ))}
       </ul>
-      {tasks && taskCompleted !== 0 ? (
+      {tasks && !taskCompleted ? (
         <p className="todos__msg" data-v-0ced9843="">
           <svg
             xmlns="http://www.w3.org/2000/svg"

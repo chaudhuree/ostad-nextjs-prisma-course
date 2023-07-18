@@ -37,7 +37,7 @@ const ToDoList = () => {
   // const taskCompleted = tasks.filter((task) => task.isComplete === true).length;
   // console.log("taskCompleted", taskCompleted);
   const taskCompleted = tasks.every((task) => !task.isComplete);
-  console.log("taskCompleted", taskCompleted);
+  // console.log("taskCompleted", taskCompleted);
 
   return (
     <div className="todo__container">

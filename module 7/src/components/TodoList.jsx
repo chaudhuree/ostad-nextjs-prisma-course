@@ -34,10 +34,8 @@ const ToDoList = () => {
     const updatedTasks = tasks.filter((_, i) => i !== index);
     setTasks(updatedTasks);
   };
-  // const taskCompleted = tasks.filter((task) => task.isComplete === true).length;
-  // console.log("taskCompleted", taskCompleted);
-  const taskCompleted = tasks.every((task) => !task.isComplete);
-  // console.log("taskCompleted", taskCompleted);
+  const taskCompleted = tasks.filter((task) => task.isComplete === true);
+  // console.log("taskCompleted", taskCompleted.length);
 
   return (
     <div className="todo__container">
@@ -109,7 +107,7 @@ const ToDoList = () => {
           </li>
         ))}
       </ul>
-      {tasks && !taskCompleted ? (
+      {tasks.length !== 0 && taskCompleted.length === tasks.length ? (
         <p className="todos__msg" data-v-0ced9843="">
           <svg
             xmlns="http://www.w3.org/2000/svg"
@@ -162,7 +160,7 @@ const ToDoList = () => {
       )}
       {tasks.length === 0 && (
         <p className="todos__msg empty" data-v-0ced9843="">
-          <span data-v-0ced9843="">Tasks list is empty!</span>
+          <span data-v-0ced9843="">😭 Tasks list is empty!</span>
         </p>
       )}
     </div>
